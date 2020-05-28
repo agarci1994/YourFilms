@@ -1,69 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 # YourFilms
+<h2 align="center">
+Aplicación para organizar las peliculas vistas o pendientes y realizar busquedas y filtrado por generos.
+</h2>
+
+<p align="center"><img src="https://i.ibb.co/6NGD2J7/Screenshot-2020-05-28-at-14-01-40.png" /></a></p>
+
+## Sobre el proyecto
+La aplicación te permite crear generos o etiquetas con las que despues crear la ficha tecnica de tu pelicula y organizarla en vistas o pendientes.
+
+<p align="center"><img src="https://i.ibb.co/WvdK1jR/Screenshot-2020-05-28-at-14-01-55.png" /></p>
+
+### Construido con 🛠
+
+El proyecto se ha construido con React en el front haciendo uso de Hooks y Redux para la gestión del estado. La gestion de infraestructuras se ha realizado con Firebase. Para la validación de formularios se ha utilizado Yup y Formik. Para la creación de estilos se ha utilizado TailwindsCSS.
+
+<p align="center"><img src="https://i.ibb.co/Kxj3n2b/Screenshot-2020-05-28-at-14-02-28.png" /></p>
+### Instalación
+
+Si desea ver el proyecto en detalle o incluso trabajar en él, no dude en clonar el repositorio:
+
+```sh
+git clone https://github.com/agarci1994/YourFilms
+```
+
+## Contribución 💬
+
+Las contribuciones son las que hacen que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear.
+
+1. Bifurca el proyecto
+2. Cree su rama de características (`git checkout -b feature / AmazingFeature`)
+3. Confirme sus cambios (`git commit -m 'Agregue un poco de AmazingFeature' ')
+4. Empuje a la rama (`git push origin feature / AmazingFeature`)
+5. Abra una solicitud de extracción
+
+## Thanks! 💖
+
+## Contacto
+
+- Alejandro García Rodríguez - [alejandro.garci.rodr@gmail.com](alejandro.garci.rodr@gmail.com).
