@@ -16,6 +16,8 @@ El proyecto se ha construido con React en el front haciendo uso de Hooks y Redux
 
 <p align="center"><img src="https://i.ibb.co/Kxj3n2b/Screenshot-2020-05-28-at-14-02-28.png" /></p>
 
+Puedes testear aquí: [https://your-films.now.sh/films](https://your-films.now.sh/films)
+
 ### Instalación
 
 Si desea ver el proyecto en detalle o incluso trabajar en él, no dude en clonar el repositorio:
