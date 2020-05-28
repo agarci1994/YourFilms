@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 
 const SearchFilms = ({ searchGenre, searchText, resetList }) => {
+  /* ---- Toggle Button ---- */
   const [drama, setDrama] = useState(false);
   const [horror, setHorror] = useState(false);
   const [comedy, setComedy] = useState(false);
   const [romantic, setRomantic] = useState(false);
-
+  /* ---- Search Text ---- */
   const [search, setSearch] = useState("");
+  /* ---- Genre Filter ---- */
   const [listSearch, setList] = useState([]);
 
   const handleGenre = ({ target: { textContent, id } }) => {
+    /* ---- He tenido problemas con la actualización del estado por su naturaleza asincronana ---- */
+
     if (id === "1") {
       if (!drama) {
         setDrama(!drama);
-        setList([...listSearch, textContent])
-        searchGenre(listSearch)
+        sendFilter(textContent);
       } else {
         setList(listSearch.splice(listSearch.indexOf(textContent), 1));
         setDrama(!drama);
@@ -22,8 +25,7 @@ const SearchFilms = ({ searchGenre, searchText, resetList }) => {
     } else if (id === "2") {
       if (!romantic) {
         setRomantic(!romantic);
-        setList([...listSearch, textContent]);
-        searchGenre(listSearch);
+        sendFilter(textContent);
       } else {
         setRomantic(!romantic);
         setList(listSearch.splice(listSearch.indexOf(textContent), 1));
@@ -31,8 +33,7 @@ const SearchFilms = ({ searchGenre, searchText, resetList }) => {
     } else if (id === "3") {
       if (!horror) {
         setHorror(!horror);
-        setList([...listSearch, textContent]);
-        searchGenre(listSearch);
+        sendFilter(textContent);
       } else {
         setList(listSearch.splice(listSearch.indexOf(textContent), 1));
         setHorror(!horror);
@@ -40,13 +41,13 @@ const SearchFilms = ({ searchGenre, searchText, resetList }) => {
     } else if (id === "4") {
       if (!comedy) {
         setComedy(!comedy);
-        setList([...listSearch, textContent]);
-        searchGenre(listSearch);
+        sendFilter(textContent);
       } else {
         setList(listSearch.splice(listSearch.indexOf(textContent), 1));
         setComedy(!comedy);
       }
     } else {
+      /* ---- Reset ---- */
       setDrama(false);
       setComedy(false);
       setRomantic(false);
@@ -60,6 +61,11 @@ const SearchFilms = ({ searchGenre, searchText, resetList }) => {
   const handleSearch = ({ target: { value } }) => {
     setSearch(value);
     searchText(search);
+  };
+
+  const sendFilter = (textContent) => {
+    setList([...listSearch, textContent]);
+    searchGenre(listSearch);
   };
 
   return (

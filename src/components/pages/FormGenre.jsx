@@ -1,27 +1,31 @@
 import React, { useContext } from "react";
+/* ---- Formik ---- */
 import { useFormik } from "formik";
+/* ---- Firebase ---- */
 import { FirebaseContext } from "../../firebase";
 
-const FormGenre = ({getGenre, allGenre}) => {
-
-
+const FormGenre = ({ getGenre, allGenre }) => {
+  /* ---- Firebase ---- */
   const { firebase } = useContext(FirebaseContext);
-
+  /* ---- Formik ---- */
   const formik = useFormik({
-      initialValues: {
-          genre: "",
-        },
-        onSubmit: (date) => {
-            createGenre(date)
-            formik.values.genre = ""
-            getGenre()
-        },
-    });
+    initialValues: {
+      genre: "",
+    },
+    onSubmit: (date) => {
+      createGenre(date);
+      formik.values.genre = "";
+      getGenre();
+    },
+  });
 
-    const createGenre = (date) => {
-        const match = allGenre.filter(elm => elm.genre.toLowerCase() === date.genre.toLowerCase())
-       !match.length && firebase.db.collection("genre").add(date);
-    }
+  const createGenre = (date) => {
+    const match = allGenre.filter(
+      (elm) => elm.genre.toLowerCase() === date.genre.toLowerCase()
+    );
+    !match.length && firebase.db.collection("genre").add(date);
+  };
+
   return (
     <div>
       <h1 className="text-3xl font-light mb-4">Add your genre</h1>

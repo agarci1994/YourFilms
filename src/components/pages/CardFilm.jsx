@@ -1,14 +1,14 @@
 import React, { useContext, useRef } from "react";
-
+/* ---- Router ---- */
 import { Link } from "react-router-dom";
-
+/* ---- Firebase ---- */
 import { FirebaseContext } from "../../firebase";
 
 const CardFilms = ({ food: { id, title, img, genre, synopsis, view } }) => {
-
-  const viewRef = useRef(view);
+  /* ---- Firebase ---- */
   const { firebase } = useContext(FirebaseContext);
-
+  /* ---- View ---- */
+  const viewRef = useRef(view);
   const updateView = () => {
     const view = viewRef.current.value === "true";
     try {
@@ -17,12 +17,14 @@ const CardFilms = ({ food: { id, title, img, genre, synopsis, view } }) => {
       console.log(error);
     }
   };
-
-  const deleteFilm = id => firebase.db.collection("films").doc(id).delete().then(() => console.log("eliminado")).catch(err => console.log(err))
-
-
-  
-
+  /* ---- Delete ---- */
+  const deleteFilm = (id) =>
+    firebase.db
+      .collection("films")
+      .doc(id)
+      .delete()
+      .then(() => console.log("eliminado"))
+      .catch((err) => console.log(err));
 
   return (
     <div className="w-full px-3 mb-4">
@@ -51,25 +53,26 @@ const CardFilms = ({ food: { id, title, img, genre, synopsis, view } }) => {
             <p className="font-bold text-2xl text-yellow-600 mb-4">{title}</p>
             <p className="text-gray-600 mb-4">
               Genre:
-              {genre.map((elm) => (
-                <span className="text-gray-700 font-bold ml-1">
+              {genre.map((elm, idx) => (
+                <span key={idx} className="text-gray-700 font-bold ml-1">
                   {elm.toUpperCase()}
                 </span>
               ))}
             </p>
             <p className="text-gray-600 mb-4">{synopsis}</p>
           </div>
-          <div className='flex'>
-          <div
-            className="bg-red-300 mr-3 text-white uppercase lg:h-8 lg:pl-2 lg:pr-2 lg:w-24 sm:w-1/5 sm:pl-3 hover:bg-red-600"
-            onClick={() => deleteFilm(id)}
-          >
-            <p>Remove</p>
-          </div>
-          <Link to={`/update/${id}`}
-            className="bg-green-300 text-white uppercase lg:h-8 lg:pl-2 lg:pr-2 lg:w-24 sm:w-1/5 sm:pl-3 hover:bg-green-600"
-          >
-            <p>Update</p>
+          <div className="flex">
+            <div
+              className="bg-red-300 mr-3 text-white uppercase lg:h-8 lg:pl-2 lg:pr-2 lg:w-24 sm:w-1/5 sm:pl-3 hover:bg-red-600"
+              onClick={() => deleteFilm(id)}
+            >
+              <p>Remove</p>
+            </div>
+            <Link
+              to={`/update/${id}`}
+              className="bg-green-300 text-white uppercase lg:h-8 lg:pl-2 lg:pr-2 lg:w-24 sm:w-1/5 sm:pl-3 hover:bg-green-600"
+            >
+              <p>Update</p>
             </Link>
           </div>
         </div>

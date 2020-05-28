@@ -1,27 +1,40 @@
 import React, { useContext, useState, useEffect } from "react";
+/* ---- Form ---- */
 import { useFormik } from "formik";
-import { useSelector } from "react-redux";
 import * as Yup from "yup";
+/* ---- Redux ---- */
+import { useSelector } from "react-redux";
+/* ---- Firebase ---- */
 import { FirebaseContext } from "../../firebase";
-import { useNavigate, useParams } from "react-router-dom";
 import FileUploader from "react-firebase-file-uploader";
+/* ---- Router ---- */
+import { useNavigate, useParams } from "react-router-dom";
+/* ---- Components ---- */
 import FormGenre from "./FormGenre";
 
 const FormFilms = () => {
-  const [allGenre, setGenre] = useState([]);
+  /* ---- Params with update ---- */
   const { id } = useParams();
 
   const allFilms = useSelector((state) =>
     state.film.array ? state.film.array.filter((elm) => elm.id === id) : []
   );
+  /* ---- State ---- */
+  const [allGenre, setGenre] = useState([]);
+  const [upload, setUpload] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [url, setUrl] = useState("");
+  /* ---- Navigate ---- */
+  const navigate = useNavigate();
+  /* ---- Firebase ---- */
+  const { firebase } = useContext(FirebaseContext);
 
+  /* ---- Get Genre Firebase ---- */
   useEffect(() => {
     getGenre();
-  }, []);
-
-  const getGenre = () => {
+  });
+  const getGenre = () =>
     firebase.db.collection("genre").onSnapshot(handleSnapshot);
-  };
 
   const handleSnapshot = (snapshot) => {
     const genre = snapshot.docs.map((doc) => {
@@ -33,14 +46,7 @@ const FormFilms = () => {
     setGenre(genre);
   };
 
-  const navigate = useNavigate();
-
-  const [upload, setUpload] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [url, setUrl] = useState("");
-
-  const { firebase } = useContext(FirebaseContext);
-
+  /* ---- Formik ---- */
   const formik = useFormik({
     initialValues: {
       title: allFilms.length ? allFilms[0].title : "",
@@ -68,13 +74,13 @@ const FormFilms = () => {
       }
     },
   });
+
   const handleUploadStart = () => {
     setProgress(0);
     setUpload(true);
   };
   const handleUploadError = (error) => {
     setUpload(false);
-    console.log(error);
   };
   const handleUploadSuccess = async (name) => {
     setProgress(100);
@@ -87,7 +93,6 @@ const FormFilms = () => {
   };
   const handleProgress = (progress) => {
     setProgress(progress);
-    console.log(progress);
   };
 
   return (

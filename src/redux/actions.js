@@ -1,5 +1,5 @@
 import {
-    GET_FILMS, FILTER_GENRE, FILTER_TEXT, DELETE_FILM, MODIFY_FILM
+    GET_FILMS, FILTER_GENRE, FILTER_TEXT
 } from './actionTypes'
 
 
@@ -22,19 +22,5 @@ export const filterText = (text) => {
         type: FILTER_TEXT,
         payload: text
     }
-
-}
-
-export const deleteFilm = (films) => {
-return {
-    type: DELETE_FILM,
-    payload: films
-}
-}
-export const modifyFilm = (film) => {
-        return {
-            type: MODIFY_FILM,
-            payload: film
-        }
 
 }

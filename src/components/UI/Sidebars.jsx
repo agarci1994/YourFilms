@@ -1,4 +1,5 @@
 import React from "react";
+/* ---- Router ---- */
 import { NavLink } from "react-router-dom";
 
 const Sidebars = () => {
@@ -15,7 +16,6 @@ const Sidebars = () => {
           <NavLink
             className="p-1 text-gray-400 block hover:bg-gray-500 hover:text-gray-900"
             activeClassName='bg-gray-500 text-gray-900'
-            exact
             to="/films"
           >
             List of movies
@@ -23,7 +23,6 @@ const Sidebars = () => {
           <NavLink
             className="p-1 text-gray-400 block hover:bg-gray-500 hover:text-gray-900"
             activeClassName='bg-gray-500 text-gray-900'
-            exact
             to="/form-films"
           >
             Form

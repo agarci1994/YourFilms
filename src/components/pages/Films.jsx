@@ -1,15 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
+/* ---- Firebase---- */
 import { FirebaseContext } from "../../firebase";
+/* ---- Redux ---- */
 import { useSelector, useDispatch } from "react-redux";
 import { getFilms as get, filterGenre, filterText } from "../../redux/actions";
+/* ---- Components ---- */
 import CardFilm from "./CardFilm";
 import SearchFilms from "./SearchFilms";
 
 const Films = () => {
-  const { firebase } = useContext(FirebaseContext);
-
-  const allFilms = useSelector((state) => state.film.array);
+  /* ---- Redux ---- */
   const dispatch = useDispatch();
+  /* ---- Firebase ---- */
+  const { firebase } = useContext(FirebaseContext);
+  /* ---- Get Films in Firebase---- */
+  const allFilms = useSelector((state) => state.film.array);
 
   useEffect(() => {
     getFilms();
@@ -29,6 +34,7 @@ const Films = () => {
     dispatch(get(films));
   };
 
+/* ---- Filter ---- */
   const searchGenre = (list) => {
     list.length && dispatch(filterGenre(list));
   };
@@ -40,6 +46,7 @@ const Films = () => {
   const resetList = () => {
     getFilms();
   };
+  
   return (
     <div>
       <SearchFilms
@@ -51,8 +58,8 @@ const Films = () => {
       {allFilms ? (
         allFilms.map((elm) => <CardFilm key={elm.id} food={elm} />)
       ) : (
-        <div class="w-full overflow-hidden">
-          <div class="w-1/2 inline-block relative fluentProgressBar-waiting"></div>
+        <div className="w-full overflow-hidden">
+          <div className="w-1/2 inline-block relative fluentProgressBar-waiting"></div>
         </div>
       )}
     </div>
