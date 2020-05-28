@@ -15,6 +15,7 @@ La aplicación te permite crear generos o etiquetas con las que despues crear la
 El proyecto se ha construido con React en el front haciendo uso de Hooks y Redux para la gestión del estado. La gestion de infraestructuras se ha realizado con Firebase. Para la validación de formularios se ha utilizado Yup y Formik. Para la creación de estilos se ha utilizado TailwindsCSS.
 
 <p align="center"><img src="https://i.ibb.co/Kxj3n2b/Screenshot-2020-05-28-at-14-02-28.png" /></p>
+
 ### Instalación
 
 Si desea ver el proyecto en detalle o incluso trabajar en él, no dude en clonar el repositorio:
